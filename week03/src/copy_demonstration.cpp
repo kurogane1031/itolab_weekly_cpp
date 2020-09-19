@@ -1,4 +1,4 @@
-#include "include/sales_item.h"
+#include "sales_item.h"
 
 int main()
 {
@@ -26,7 +26,4 @@ int main()
       std::cout << sale;
     }
 
-  int i = 1, b =3;
-  std::cout << "i = " << i << "b " << b << "\n";
-  // fmt::print("i = {} b = {}", i, b);
 }
