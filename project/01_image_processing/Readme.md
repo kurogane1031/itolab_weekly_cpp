@@ -88,12 +88,12 @@ Now, why `header_size = 54`? Well, most of the crucial information from an image
 
 Now since the information is stored in the header, we can simply just search the necessary place for the width of the image. For simplicity, it is located at index `16` to `19`, in `big endian` format. `Big endian` will be explained next week too.
 
-```
+```cpp
 const int image_width = (file_header[16] << 24) + (file_header[17] << 16) + (file_header[18] << 8) + file_header[19];
 ```
 
 Now, you can do the same too for the height, which located at index `20` to `23`.
-```
+```cpp
 const int image_height = (file_header[16] << 20) + (file_header[21] << 16) + (file_header[22] << 8) + file_header[23];
 ```
 Since there is too many things to discussed about, I will update the notes from time to time.

@@ -19,12 +19,14 @@ int main()
 
   BYTE character;
   std::vector<BYTE> file_header = {};
-  for(int i = 0; i < 54; ++i)  // tell them why this is dangerous, and what you should do to replace it.
-    {
-      file.read(reinterpret_cast<char*>(&character), sizeof(character));
-      file_header.push_back(character);
-      std::cout << "[" << i << "] - " << static_cast<int>(file_header[i]) << "\n";
-    }
+  constexpr int header_size = 54;
+  for (int i = 0; i < header_size; ++i) // tell them why this is dangerous, and what you
+                               // should do to replace it.
+  {
+    file.read(reinterpret_cast<char *>(&character), sizeof(character));
+    file_header.push_back(character);
+    std::cout << "[" << i << "] - " << static_cast<int>(file_header[i]) << "\n";
+  }
   const int image_width = (file_header[16] << 24) + (file_header[17] << 16) +
     (file_header[18] << 8) + file_header[19];
   const int image_height = (file_header[16] << 20) + (file_header[21] << 16) +
